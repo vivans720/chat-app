@@ -115,6 +115,10 @@ const Chat = () => {
     }
   };
 
+  const handleEnter = async (e) =>{
+    if(e.key === 'Enter') await handleSend();
+  };
+
   return (
     <div className="chat">
       <div className="top">
@@ -171,6 +175,7 @@ const Chat = () => {
         </div>
         <input
           type="text"
+          onKeyDown={handleEnter}
           placeholder={
             isCurrentUserBlocked || isReceiverBlocked
               ? "You cannot send a message"
